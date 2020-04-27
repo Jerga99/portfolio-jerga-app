@@ -10,3 +10,14 @@
 3. in render function of portfolios display data of posts you just fetched
    You can create <ul> with <li> posts where you will display {post.id}
 4. good luck (:
+
+------------ GET POST BY ID --------------------
+1. In getInitialProps create new get request to axios to endpoint: 'https://jsonplaceholder.typicode.com/posts/:postId'
+2. Get data from response and pass them to props
+3. in render function of portfolio display data of post you just fetched
+
+   <h1>{portfolio.title}</h1>
+   <p>BODY: {portfolio.body}</p>
+   <p>ID: {portfolio.id}</p>
+
+4. good luck (:
