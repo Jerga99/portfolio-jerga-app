@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "cross-env NODE_ENV=production node server.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "cross-env": "^7.0.2",
+    "express": "^4.17.1",
     "next": "9.3.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
