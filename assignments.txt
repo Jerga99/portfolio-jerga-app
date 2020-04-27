@@ -3,3 +3,10 @@
 1. Create "about", "portfolios", "blogs" and "cv" page.
 2. Make all of the pages class component.
 3. Return just simple text "I am Blogs Page...."
+
+------------ GET POSTS --------------------
+1. In getInitialProps create new get request to axios to endpoint: 'https://jsonplaceholder.typicode.com/posts'
+2. Get data(first 10 posts) from response and pass them to props
+3. in render function of portfolios display data of posts you just fetched
+   You can create <ul> with <li> posts where you will display {post.id}
+4. good luck (:
