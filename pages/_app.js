@@ -18,7 +18,6 @@ class App extends React.Component {
   }
 
   render() {
-    debugger
     const { Component, pageProps } = this.props;
     return <Component {...pageProps} />
   }

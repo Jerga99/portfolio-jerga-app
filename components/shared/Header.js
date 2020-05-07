@@ -20,6 +20,12 @@ const BsNavLink = props => {
   )
 }
 
+const BsNavBrand = () =>
+  <Link href="/">
+    <a className="navbar-brand port-navbar-brand">Filip Jerga</a>
+  </Link>
+
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -31,11 +37,7 @@ const Header = () => {
         color="transparent"
         dark
         expand="md">
-        <NavbarBrand>
-          <Link href="/">
-            <a className="port-navbar-brand">Filip Jerga</a>
-          </Link>
-        </NavbarBrand>
+        <BsNavBrand />
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
