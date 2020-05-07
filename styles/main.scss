@@ -1,6 +1,9 @@
 
 @import './shared/fonts';
 
+// Components
+@import './components/header';
+
 // Pages
 @import './index';
 
@@ -8,6 +11,10 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: 'Montserrat', 'Helvetica' !important;
+}
+
+.absolute {
+  position: absolute;
 }
 
 .self-typed {
