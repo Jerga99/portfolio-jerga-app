@@ -1,6 +1,6 @@
 
 
-import BaseLayout from '../components/layouts/BaseLayout';
+import BaseLayout from '@/components/layouts/BaseLayout';
 import { Container, Row, Col } from 'reactstrap';
 import Typed from 'react-typed';
 
