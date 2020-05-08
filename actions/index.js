@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react';
 
-export const useGetPosts = () => {
-  const [posts, setPosts] = useState([]);
+export const useGetData = (url) => {
+  const [data, setData] = useState();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function getPosts() {
-      const res = await fetch('/api/v1/posts');
+    async function fetchData() {
+      const res = await fetch(url);
       const result = await res.json();
       if (res.status !== 200) {
         setError(result)
       } else {
-        setPosts(result);
+        setData(result);
       }
 
       setLoading(false);
     }
 
-    getPosts();
-  }, [])
+    url && fetchData();
+  }, [url])
 
-  return {posts, error, loading}
+  return {data, error, loading}
 }
