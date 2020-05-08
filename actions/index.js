@@ -1,25 +1,20 @@
-import { useEffect, useState } from 'react';
 
-export const useGetData = (url) => {
-  const [data, setData] = useState();
-  const [error, setError] = useState();
-  const [loading, setLoading] = useState(true);
+import useSWR from 'swr'
 
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch(url);
-      const result = await res.json();
-      if (res.status !== 200) {
-        setError(result)
-      } else {
-        setData(result);
-      }
+const fetcher = (url) =>
+  fetch(url).then(async res => {
+    const result = await res.json();
 
-      setLoading(false);
+    if (res.status !== 200) {
+      return Promise.reject(result);
+    } else {
+      return result;
     }
+  });
 
-    url && fetchData();
-  }, [url])
-
-  return {data, error, loading}
+export const useGetPosts = () => {
+  const {data, error, ...rest} = useSWR('/api/v1/posts', fetcher);
+  return {data, error, loading: !data && !error, ...rest}
 }
+
+
