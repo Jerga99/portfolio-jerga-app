@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "cross-env": "^7.0.2",
+    "dotenv-webpack": "^1.7.0",
     "express": "^4.17.1",
     "next": "9.3.5",
     "next-routes": "^1.4.2",
