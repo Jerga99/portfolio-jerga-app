@@ -30,7 +30,7 @@ const LoginLink = () =>
 const LogoutLink = () =>
   <span className="nav-link port-navbar-link clickable">Logout</span>
 
-const Header = () => {
+const Header = ({user, loading}) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -62,12 +62,20 @@ const Header = () => {
             </NavItem>
           </Nav>
           <Nav navbar>
-            <NavItem className="port-navbar-item">
-              <LoginLink />
-            </NavItem>
-            <NavItem className="port-navbar-item">
-              <LogoutLink />
-            </NavItem>
+            { !loading &&
+              <>
+                { user &&
+                  <NavItem className="port-navbar-item">
+                    <LogoutLink />
+                  </NavItem>
+                }
+                { !user &&
+                  <NavItem className="port-navbar-item">
+                    <LoginLink />
+                  </NavItem>
+                }
+              </>
+            }
           </Nav>
         </Collapse>
       </Navbar>
