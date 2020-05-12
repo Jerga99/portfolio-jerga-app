@@ -2,19 +2,18 @@
 import BaseLayout from '@/components/layouts/BaseLayout';
 import BasePage from '@/components/BasePage';
 import Link from 'next/link';
-import { useGetPosts } from '@/actions';
 import { useGetUser } from '@/actions/user';
+import PortfolioApi from '@/lib/api/portfolios';
 
-const Portfolios = () => {
-  const { data, loading, error } = useGetPosts();
+const Portfolios = ({portfolios}) => {
   const { data: dataU, loading: loadingU } = useGetUser();
 
-  const renderPosts = (posts) => {
-    return posts.map(post =>
-      <li key={post.id} style={{'fontSize': '20px'}}>
-        <Link as={`/portfolios/${post.id}`} href="/portfolios/[id]">
+  const renderPortfolios = (portfolios) => {
+    return portfolios.map(portfolio =>
+      <li key={portfolio._id} style={{'fontSize': '20px'}}>
+        <Link as={`/portfolios/${portfolio._id}`} href="/portfolios/[id]">
           <a>
-            {post.title}
+            {portfolio.title}
           </a>
         </Link>
       </li>
@@ -24,21 +23,23 @@ const Portfolios = () => {
   return (
     <BaseLayout user={dataU} loading={loadingU}>
       <BasePage>
-        <h1>I am Portfolio Page</h1>
-        { loading &&
-          <p>Loading data...</p>
-        }
-        { data &&
-          <ul>
-            {renderPosts(data)}
-          </ul>
-        }
-        { error &&
-          <div className="alert alert-danger">{error.message}</div>
-        }
+        <ul>
+          {renderPortfolios(portfolios)}
+        </ul>
       </BasePage>
     </BaseLayout>
   )
+}
+
+// This function is called during the build time
+// Improved performance of page,
+// It will create static page with dynamic data
+export async function getStaticProps() {
+  const json = await new PortfolioApi().getAll();
+  const portfolios = json.data;
+  return {
+    props: { portfolios }
+  }
 }
 
 export default Portfolios;
