@@ -5,6 +5,11 @@
   z-index: 15;
   padding: 40px;
 
+  &.with-bg {
+    background-color: #2C3E50;
+    padding: 30px;
+  }
+
   .port-navbar {
     &-brand {
       color: white;

@@ -13,6 +13,7 @@ const Index = () => {
     <BaseLayout
       user={data}
       loading={loading}
+      navClass="transparent"
       className="cover">
       <div className="main-section">
         <div className="background-image">
