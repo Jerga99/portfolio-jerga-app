@@ -10,12 +10,16 @@ import PortfolioForm from '@/components/PortfolioForm';
 
 const PortfolioNew = ({user, loading: userLoading}) => {
 
+  const createPortfolio = (data) => {
+    alert(JSON.stringify(data));
+  }
+
   return (
     <BaseLayout user={user} loading={userLoading}>
       <BasePage header="Create Portfolio">
         <Row>
           <Col md="8">
-            <PortfolioForm />
+            <PortfolioForm onSubmit={createPortfolio} />
           </Col>
         </Row>
       </BasePage>
