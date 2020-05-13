@@ -1,4 +1,5 @@
 
+import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 
 const PortfolioForm = ({onSubmit}) => {
@@ -71,14 +72,22 @@ const PortfolioForm = ({onSubmit}) => {
       <div className="form-group">
         <label htmlFor="startDate">Start Date</label>
         <div>
-          {/* Date picker here */}
+          <DatePicker
+            showYearDropdown
+            selected={new Date()}
+            onChange={() => {}}
+          />
         </div>
       </div>
 
       <div className="form-group">
         <label htmlFor="endDate">End Date</label>
         <div>
-          {/* Date picker here */}
+          <DatePicker
+            showYearDropdown
+            selected={new Date()}
+            onChange={() => {}}
+          />
         </div>
       </div>
       <button
