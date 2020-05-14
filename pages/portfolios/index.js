@@ -4,13 +4,23 @@ import BasePage from '@/components/BasePage';
 import { Row, Col, Button } from 'reactstrap';
 import { useRouter } from 'next/router';
 import { useGetUser } from '@/actions/user';
+import { useDeletePortfolio } from '@/actions/portfolios';
 import PortfolioApi from '@/lib/api/portfolios';
 import PortfolioCard from '@/components/PortfolioCard';
 import { isAuthorized } from '@/utils/auth0';
 
 const Portfolios = ({portfolios}) => {
   const router = useRouter();
+  const [deletePortfolio, {data, error}] = useDeletePortfolio();
   const { data: dataU, loading: loadingU } = useGetUser();
+
+  const _deletePortfolio = async (e, portfolioId) => {
+    e.stopPropagation();
+    const isConfirm = confirm('Are you sure you want to delete this portfolio?');
+    if (isConfirm) {
+      await deletePortfolio(portfolioId);
+    }
+  }
 
   return (
     <BaseLayout user={dataU} loading={loadingU}>
@@ -36,7 +46,9 @@ const Portfolios = ({portfolios}) => {
                       }}
                       className="mr-2"
                       color="warning">Edit</Button>
-                    <Button color="danger">Delete</Button>
+                    <Button
+                      onClick={(e) => _deletePortfolio(e, portfolio._id)}
+                      color="danger">Delete</Button>
                   </>
                 }
               </PortfolioCard>
