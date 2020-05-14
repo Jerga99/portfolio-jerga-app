@@ -6,15 +6,19 @@ import {
   Navbar,
   NavbarToggler,
   Nav,
-  NavItem
+  NavItem,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from 'reactstrap';
 
 
 const BsNavLink = props => {
-  const { href, title } = props;
+  const { href, title, className=''} = props;
   return (
     <Link href={href}>
-      <a className="nav-link port-navbar-link">{title}</a>
+      <a className={`nav-link port-navbar-link ${className}`}>{title}</a>
     </Link>
   )
 }
@@ -29,6 +33,31 @@ const LoginLink = () =>
 
 const LogoutLink = () =>
   <a className="nav-link port-navbar-link" href="/api/v1/logout">Logout</a>
+
+
+const AdminMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <Dropdown
+      className="port-navbar-link port-dropdown-menu"
+      nav
+      isOpen={isOpen}
+      toggle={() => setIsOpen(!isOpen)}>
+        <DropdownToggle className="port-dropdown-toggle" nav carret>
+          Admin
+        </DropdownToggle>
+        <DropdownMenu>
+          <DropdownItem>
+            <BsNavLink
+              className="port-dropdown-item"
+              href="/portfolios/new"
+              title="Create Portfolio"
+            />
+          </DropdownItem>
+        </DropdownMenu>
+    </Dropdown>
+  )
+}
 
 const Header = ({user, loading, className}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,9 +105,12 @@ const Header = ({user, loading, className}) => {
             { !loading &&
               <>
                 { user &&
-                  <NavItem className="port-navbar-item">
-                    <LogoutLink />
-                  </NavItem>
+                  <>
+                    <AdminMenu />
+                    <NavItem className="port-navbar-item">
+                      <LogoutLink />
+                    </NavItem>
+                  </>
                 }
                 { !user &&
                   <NavItem className="port-navbar-item">
