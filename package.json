@@ -20,6 +20,7 @@
     "react-datepicker": "^2.15.0",
     "react-dom": "16.13.1",
     "react-hook-form": "^5.7.2",
+    "react-toastify": "^6.0.4",
     "react-typed": "^1.2.0",
     "reactstrap": "^8.4.1",
     "sass": "^1.26.5",

@@ -1,5 +1,6 @@
 
 import Header from '@/components/shared/Header';
+import { ToastContainer } from 'react-toastify';
 
 const BaseLayout = props => {
   const { className, user, navClass="with-bg", loading, children } = props;
@@ -14,6 +15,7 @@ const BaseLayout = props => {
           {children}
         </div>
       </main>
+      <ToastContainer />
     </div>
   )
 }

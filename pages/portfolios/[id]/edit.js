@@ -7,15 +7,16 @@ import { useGetPortfolio } from '@/actions/portfolios';
 import PortfolioForm from '@/components/PortfolioForm';
 import { Row, Col } from 'reactstrap';
 import { useUpdatePortfolio} from '@/actions/portfolios';
+import { toast } from 'react-toastify';
 
 const PortfolioEdit = ({user}) => {
   const router = useRouter();
-  const [ updatePortfolio, {data, error, loading}] = useUpdatePortfolio();
-  debugger
+  const [ updatePortfolio, {error}] = useUpdatePortfolio();
   const { data: initialData } = useGetPortfolio(router.query.id);
 
-  const _updatePortfolio = (data) => {
-    updatePortfolio(router.query.id, data);
+  const _updatePortfolio = async (data) => {
+    await updatePortfolio(router.query.id, data);
+    toast.success('Portfolio has been updated!', {autoClose: 2000})
   }
 
   return (
