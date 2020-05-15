@@ -4,12 +4,21 @@ import BasePage from '@/components/BasePage';
 import { withAuth } from 'utils/auth0';
 import { Row, Col } from 'reactstrap';
 import Masthead from 'components/shared/Masthead';
+import PortDropdown from 'components/shared/Dropdown';
 import Link from 'next/link';
 
 import auth0 from 'utils/auth0';
 import BlogApi from 'lib/api/blogs';
 
 const Dashboard = ({user, blogs}) => {
+
+  const createOptions = (blog) => {
+
+    return [
+      {key: `${blog._id}-published`, text: 'Published', handlers: { onClick: () => {alert(`Clicking Publish! ${blog._id}`)}}},
+      {key: `${blog._id}-delete`,text: 'Delete', handlers: { onClick: () => {alert(`Clicking Delete! ${blog._id}`)}}}
+    ]
+  }
 
   const renderBlogs = (blogs, status) => (
     <ul className="user-blogs-list">
@@ -18,6 +27,7 @@ const Dashboard = ({user, blogs}) => {
           <Link href="/blogs/editor/[id]" as={`/blogs/editor/${blog._id}`}>
             <a>{blog.title}</a>
           </Link>
+          <PortDropdown items={createOptions(blog)} />
         </li>
         )
       }
