@@ -13,6 +13,7 @@
     "bootstrap": "^4.4.1",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
+    "moment": "^2.25.3",
     "next": "^9.4.0",
     "next-routes": "^1.4.2",
     "react": "16.13.1",

@@ -5,7 +5,6 @@ import { useGetUser } from '@/actions/user';
 import Masthead from 'components/shared/Masthead';
 import { Row, Col } from 'reactstrap';
 import BlogItem from 'components/BlogItem';
-import Link from 'next/link';
 import BlogApi from 'lib/api/blogs';
 
 const Blogs = ({blogs}) => {
