@@ -1,4 +1,35 @@
 // Index -----------
+
+.cover.cover-orange {
+  background-image: linear-gradient(45deg, rgb(254, 202, 83), rgb(253, 157, 97));
+}
+
+.flipper {
+  transition: 1s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flipper.isFlipping {
+  transform: rotateY(-180deg);
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  transform: rotateY(0deg);
+  z-index: 9999;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
 .cover {
   background-image: linear-gradient(45deg,#00aeef 0%,#096fb9 100%);
   overflow: hidden;
@@ -110,7 +141,7 @@
   }
 }
 
-.shadow-custom-2 {
+.shadow-custom-orange {
   border: 2px solid #f37d49;
   box-shadow: -17px 13px 41px rgba(13,78,158,0.3);
 }
