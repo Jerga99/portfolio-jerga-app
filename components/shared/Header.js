@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { isAuthorized } from '@/utils/auth0';
+import ReactResizeDetector from 'react-resize-detector';
 import {
   Collapse,
   Navbar,
@@ -79,9 +80,10 @@ const Header = ({user, loading, className}) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
-      <Navbar
-        className={`port-navbar port-default absolute ${className}`}
+    <ReactResizeDetector handleWidth>
+      {({width}) =>
+        <Navbar
+        className={`port-navbar port-default absolute ${className} ${width < 768 && isOpen ? 'is-open' : 'is-close'}`}
         dark
         expand="md">
         <BsNavBrand />
@@ -137,7 +139,8 @@ const Header = ({user, loading, className}) => {
           </Nav>
         </Collapse>
       </Navbar>
-    </div>
+      }
+    </ReactResizeDetector>
   );
 }
 

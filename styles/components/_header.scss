@@ -61,3 +61,11 @@
     }
   }
 }
+
+.port-navbar.transparent.is-open {
+  background-color: #2C3E50;
+}
+
+.port-navbar.transparent.is-close {
+  transition: 1s;
+}
