@@ -3,9 +3,15 @@ import { Container } from 'reactstrap';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+const PageHeader = ({header}) =>
+  <div className="page-header">
+    <h1 className="page-header-title">{header}</h1>
+  </div>
+
 const BasePage = props => {
   const router = useRouter();
   const {
+    noWrapper,
     indexPage,
     className = '',
     header,
@@ -35,14 +41,18 @@ const BasePage = props => {
           href={`${process.env.BASE_URL}${canonicalPath ? canonicalPath : router.asPath}`} />
       </Head>
       <div className={`${pageType} ${className}`}>
-        <Container>
-          { header &&
-            <div className="page-header">
-              <h1 className="page-header-title">{header}</h1>
-            </div>
-          }
-          {children}
-        </Container>
+        { noWrapper &&
+          <>
+            { header && <PageHeader header={header} /> }
+            {children}
+          </>
+        }
+        { !noWrapper &&
+          <Container>
+            { header && <PageHeader header={header} /> }
+            {children}
+          </Container>
+        }
       </div>
     </>
   )
