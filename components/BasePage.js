@@ -28,7 +28,7 @@ const BasePage = props => {
         <meta property="og:type" key="og:type" content="website" />
         <meta property="og:description" key="og:description" content={metaDescription} />
         <meta property="og:image" key="og:image" content={`${process.env.BASE_URL}/images/section-1.png`} />
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet"></link>
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
         <link
           rel="canonical"
