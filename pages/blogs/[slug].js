@@ -12,7 +12,9 @@ const BlogDetail = ({blog, author}) => {
   const { data, loading } = useGetUser();
   return (
     <BaseLayout user={data} loading={loading}>
-      <BasePage className="slate-container">
+      <BasePage
+        title={`${blog.title} - Filip Jerga`}
+        className="slate-container">
         <Row>
           <Col md={{size: 8, offset: 2}}>
             <Avatar
