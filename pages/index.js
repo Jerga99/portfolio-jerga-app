@@ -46,7 +46,7 @@ const Index = () => {
                           Have a look at my portfolio and job history.
                         </div>
                       </div>
-                      <img className="image" src="/images/section-1.png"/>
+                      <img className="image" src="/images/section-1.jpg"/>
                       <div className="shadow-custom">
                         <div className="shadow-inner"> </div>
                       </div>
@@ -58,7 +58,7 @@ const Index = () => {
                           Have a look at my portfolio and job history.
                         </div>
                       </div>
-                      <img className="image" src="/images/section-2.png"/>
+                      <img className="image" src="/images/section-2.jpg"/>
                       <div className="shadow-custom shadow-custom-orange">
                         <div className="shadow-inner"> </div>
                       </div>
