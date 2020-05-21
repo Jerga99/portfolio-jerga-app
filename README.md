@@ -1,5 +1,5 @@
-# portfolio-jerga-api
-Api Server - Udemy course material
+# portfolio-jerga-app
+Next.js Serverless App - Udemy course material
 
 
 ### 1. Run `npm install` to install all of the dependencies
