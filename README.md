@@ -16,7 +16,7 @@ AUTH0_NAMESPACE=YOUR_AUTH0_NAMESPACE
 AUTH0_AUDIENCE=YOUR_AUTH0_AUDIENCE
 
 PORTFOLIO_API_URL=http://localhost:3001/api/v1
-BASE_URL="http://localhost:3000"
+BASE_URL=http://localhost:3000
 ```
 
 ### 3. run `npm run dev`
