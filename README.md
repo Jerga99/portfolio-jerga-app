@@ -1,30 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+# portfolio-jerga-app
+Next.js Serverless App - Udemy course material
 
-## Getting Started
 
-First, run the development server:
+### 1. Run `npm install` to install all of the dependencies
 
-```bash
-npm run dev
-# or
-yarn dev
+### 2. in root folder create `env.development.local` file with following content:
+```javascript
+AUTH0_DOMAIN=YOUR_AUTH0_DOMAIN
+AUTH0_CLIENT_ID=YOUR_AUTH0_CLIENT_ID
+AUTH0_CLIENT_SECRET=YOUR_AUTH0_CLIENT_SECRET
+AUTH0_REDIRECT_URI=http://localhost:3000/api/v1/callback
+AUTH0_POST_LOGOUT_REDIRECT_URI=http://localhost:3000/
+AUTH0_COOKIE_SECRET=SOME_UNIQUE_STRING //e.g. asd7ad9879d8a7d89adkabsdhjbasbdas98as7d>?{sd9a87dd8a7d9adad7a8d}
+AUTH0_NAMESPACE=YOUR_AUTH0_NAMESPACE
+AUTH0_AUDIENCE=YOUR_AUTH0_AUDIENCE
+
+PORTFOLIO_API_URL=http://localhost:3001/api/v1
+BASE_URL=http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on ZEIT Now
-
-The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](https://zeit.co/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 3. run `npm run dev`
