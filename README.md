@@ -1,6 +1,8 @@
 # portfolio-jerga-app
 Next.js Serverless App - Udemy course material
 
+[Complete Next.js with React & Node - Beautiful Portfolio App
+](https://www.udemy.com/course/awesome-nextjs-with-react-and-node-amazing-portfolio-app/?referralCode=154895384642AFFCE598)
 
 ### 1. Run `npm install` to install all of the dependencies
 
