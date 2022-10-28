@@ -9,13 +9,13 @@
     "start": "next start"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^0.11.0",
+    "@auth0/nextjs-auth0": "^1.9.2",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "moment": "^2.25.3",
-    "next": "^9.4.0",
+    "next": "^10.2.3",
     "next-routes": "^1.4.2",
     "react": "16.13.1",
     "react-datepicker": "^2.15.0",

@@ -10,7 +10,7 @@ export default async function handleBlog(req, res) {
 
   if (req.method === 'PATCH') {
     try {
-      const { accessToken } = await auth0.getSession(req);
+      const { accessToken } = await auth0.getSession(req, res);
       const json = await new BlogApi(accessToken).update(req.query.id, req.body);
       return res.json(json.data);
     } catch(e) {
